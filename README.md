@@ -61,10 +61,8 @@ cp .env.example .env
 # 方式一：直接运行
 python3 main.py
 
-# 方式二：systemd 服务（推荐生产环境）
-sudo cp crypto-price-api.service /etc/systemd/system/
-sudo systemctl enable crypto-price-api
-sudo systemctl start crypto-price-api
+# 方式二：一键安装为 systemd 服务（推荐生产环境）
+sudo python3 install.py
 ```
 
 ### 测试订阅
@@ -81,6 +79,7 @@ crypto-price-api/
 ├── redis_client.py    # Redis 连接池 + 数据写入/发布
 ├── ws_stream.py       # WebSocket 核心逻辑
 ├── main.py            # 启动入口
+├── install.py         # 一键安装 systemd 服务
 ├── subscriber.py      # 订阅测试工具
 ├── .env.example       # 环境变量示例
 └── README.md
